@@ -9,6 +9,7 @@ public class CardsMain {
 		
 		System.out.println("Welcome to the Game of Cards");
 
+		Cards.initializeCards();
 	}
 
 }
