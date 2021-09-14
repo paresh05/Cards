@@ -23,7 +23,7 @@ public class DeckOfCards {
 	
 	public static String[] ranks = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
 
-	private static List<Card> deckOfCards = new ArrayList<Card>();
+	public static List<Card> deckOfCards = new ArrayList<Card>();
 
 
 	/**
@@ -49,6 +49,18 @@ public class DeckOfCards {
 		Collections.shuffle(deckOfCards);
 
 	}
+	
+	public void distributeCards() {
+		for(int j=0;j< Players.players.size(); j++) {
+			Collections.shuffle(deckOfCards);
+			for(int i = 0;i<deckOfCards.size();i++) {
+				if(Players.players.get(j).player.size()<9) {
+					Players.players.get(j).player.add(deckOfCards.get(i));
+					deckOfCards.remove(i);}
+			}
+		}
+	}
+	
 	/**
 	 * @param args
 	 */
@@ -67,6 +79,8 @@ public class DeckOfCards {
 		int noOfPlayers = p.noOfPlayers();
 		
 		p.sequenceOfPlayers();
+		
+		deckOfCards.distributeCards();
 
 	}
 }

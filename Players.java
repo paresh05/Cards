@@ -8,8 +8,9 @@ import java.util.Scanner;
 class Player{
 	
 	String name;
+	List<Card>player;
 	public Player(String name) {
-		List<Card>player = new ArrayList<Card>();
+		player = new ArrayList<Card>();
 		this.name = name;
 	}
 }
@@ -24,7 +25,7 @@ public class Players {
 	 * @param n is the number of players passed in the main function
 	 */
 	
-	List<Player>players;
+	public static List<Player>players;
 	public Players() {
 		this.players = new ArrayList<Player>();
 	}
