@@ -1,8 +1,8 @@
 package com.bridgelabzcards;
 
-import java.util.HashSet;
-
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author paresh.praveen_ymedi
@@ -23,7 +23,7 @@ public class DeckOfCards {
 	
 	public static String[] ranks = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
 
-	private static Set<Card> deckOfCards = new HashSet<Card>();
+	private static List<Card> deckOfCards = new ArrayList<Card>();
 
 
 	/**
@@ -38,6 +38,17 @@ public class DeckOfCards {
 			}	
 		}
 	}
+	
+	/**
+	 * This method is used to Shuffle all the cards in the deck
+	 * 
+	 * @return nothing
+	 */
+	public void shuffleCards() {
+		
+		Collections.shuffle(deckOfCards);
+
+	}
 	/**
 	 * @param args
 	 */
@@ -48,6 +59,8 @@ public class DeckOfCards {
 		DeckOfCards deckOfCards = new DeckOfCards();
 		
 		deckOfCards.initializeCards();
+		
+		deckOfCards.shuffleCards();
 		
 		Players p = new Players();
 		
