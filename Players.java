@@ -37,7 +37,7 @@ public class Players {
 	 * @return noOfPlayers
 	 */
 	
-	public int noOfPlayers()
+	public void noOfPlayers()
 	{
 		int input=0;
 		System.out.println("Enter the number of Players more than 2 and max 4");
@@ -59,7 +59,6 @@ public class Players {
 				input=1;
 			}
 		}
-		return noOfPlayers;
 	}
 
 	/**
