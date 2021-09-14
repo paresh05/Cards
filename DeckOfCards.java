@@ -49,10 +49,11 @@ public class DeckOfCards {
 		
 		deckOfCards.initializeCards();
 		
-		int noOfPlayers = Players.noOfPlayers();
+		Players p = new Players();
 		
-		Players p = new Players(noOfPlayers);
-
+		int noOfPlayers = p.noOfPlayers();
+		
+		p.sequenceOfPlayers();
 
 	}
 }
