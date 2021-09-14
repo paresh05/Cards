@@ -5,18 +5,20 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-class Player{
-	
+class Player
+{
 	String name;
-	List<Card>player;
-	public Player(String name) {
-		player = new ArrayList<Card>();
+	List <Card> player;
+	
+	public Player(String name) 
+	{
+		player = new ArrayList <Card> ();
 		this.name = name;
 	}
 }
 
-public class Players {
-	
+public class Players 
+{
 	public static int noOfPlayers;
 	public static String playerName;
 	
@@ -26,7 +28,8 @@ public class Players {
 	 */
 	
 	public static List<Player>players;
-	public Players() {
+	public Players() 
+	{
 		this.players = new ArrayList<Player>();
 	}
 	
@@ -51,7 +54,8 @@ public class Players {
 			}
 			else {
 				sc.nextLine();
-				for(int i = 0; i<noOfPlayers;i++) {
+				for(int i = 0; i<noOfPlayers;i++) 
+				{
 					System.out.println("Enter the name of Player"+(i+1)+": ");
 					playerName = sc.nextLine();
 					this.players.add(new Player(playerName));
@@ -66,20 +70,14 @@ public class Players {
 	 * @return nothing
 	 */
 	public void sequenceOfPlayers() {
-		
-		System.out.println("Before Shuffle");
-		
-		for(int i=0; i<players.size(); i++){
-			System.out.println("Player "+(i+1)+" :"+players.get(i).name);
-		}
-		
+
 		Collections.shuffle(this.players);
 		
-		System.out.println("After Shuffle");
+		System.out.println("The Sequence of Play is");
 		
-		for(int i=0; i<players.size(); i++){
+		for(int i=0; i<players.size(); i++)
+		{
 			System.out.println("Player "+(i+1)+" :"+players.get(i).name);
-			
 		}
 	}
 }

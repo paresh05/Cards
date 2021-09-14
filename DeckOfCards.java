@@ -21,7 +21,7 @@ public class DeckOfCards
 {
 	public static String[] suits = { "Spades", "Hearts", "Diamonds", "Clubs" };
 	
-	public static String[] ranks = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
+	public static String[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
 
 	public static List<Card> deckOfCards = new ArrayList<Card>();
 
@@ -103,7 +103,51 @@ public class DeckOfCards
 					break;
 				}
 			}
-			System.out.println("Player "+Players.players.get(j).name+" Cards : Clubs: "+clubs+" Diamonds: "+diamonds+" Hearts: "+hearts+" Spades: "+spades);
+			System.out.println("Player "+Players.players.get(j).name+"'s Cards : Clubs: "+clubs+" Diamonds: "+diamonds+" Hearts: "+hearts+" Spades: "+spades);
+		}
+	}
+	
+	/**
+	 * This method is used to Sort the cards of each player 
+	 * 
+	 * @return nothing
+	 */
+	public static void sortCards() 
+	{
+		for(int j=0;j< Players.players.size(); j++) 
+			{ 
+			int temp =0;
+			for(int i=0;i< ranks.length; i++) 
+			{
+				for(int k = 0;k<9;k++) 
+				{
+					String rank = Players.players.get(j).player.get(k).ranks;
+					if(rank == ranks[i])
+					{
+						Card temp3 = Players.players.get(j).player.get(temp);
+						Card temp2 = Players.players.get(j).player.get(k);
+						Players.players.get(j).player.set(temp,temp2);
+						Players.players.get(j).player.set(k,temp3);
+						temp++;
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * This method is used to Display the cards of each player 
+	 * 
+	 * @return nothing
+	 */
+	public static void displayCards()
+	{
+		for(int j=0;j< Players.players.size(); j++) 
+		{ 
+			System.out.println("Player "+Players.players.get(j).name+"'s Cards are ");
+			
+			System.out.println(Players.players.get(j).player);
+		
 		}
 	}
 	
@@ -127,5 +171,9 @@ public class DeckOfCards
 		distributeCards();
 		
 		verifyCards();
+		
+		sortCards();
+		
+		displayCards();
 	}
 }
